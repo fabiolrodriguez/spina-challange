@@ -6,7 +6,7 @@ resource "aws_db_subnet_group" "spina" {
   }
 }
 
-resource "aws_db_instance" "mysql" {
+resource "aws_db_instance" "postgres" {
   allocated_storage = var.allocated_storage
   storage_type = var.storage_type_db
   engine = var.engine

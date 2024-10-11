@@ -93,7 +93,7 @@ variable "instance_class" {
 
 variable "engine_version" {
   description = "The engine version"
-  default = "17"
+  default = "16.4"
   type = string
 }
 
