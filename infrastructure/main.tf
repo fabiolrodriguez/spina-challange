@@ -21,12 +21,9 @@ resource "aws_lb_listener" "http" {
   protocol          = "HTTP"
 
   default_action {
-    type             = "redirect"
-    redirect {
-      protocol        = "HTTPS"
-      port            = "443"
-      status_code     = "HTTP_301"
-    }
+    target_group_arn = module.service.target_group_arn
+    type             = "forward"
   }
+
 }
 ### --- END of service block ---###

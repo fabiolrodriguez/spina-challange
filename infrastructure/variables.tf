@@ -34,7 +34,7 @@ variable "public_subnet2" {
 variable "engine" {
   description = "The database engine"
   type = string
-  default = "mysql"
+  default = "postgres"
   validation {
     error_message = "Please use a valid database engine"
     condition = can(regex(join("", concat(["^("], [join("|", [ 
@@ -93,7 +93,7 @@ variable "instance_class" {
 
 variable "engine_version" {
   description = "The engine version"
-  default = "8.0.32"
+  default = "17"
   type = string
 }
 

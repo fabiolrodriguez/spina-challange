@@ -2,7 +2,7 @@
 resource "aws_vpc" "test" {
   cidr_block = var.cidr
   tags = {
-    Name = "VPC for Interview 25"
+    Name = "VPC for Spina challange"
   }
 }
 
@@ -10,7 +10,7 @@ resource "aws_vpc" "test" {
 resource "aws_subnet" "public" {
   vpc_id = aws_vpc.test.id
   cidr_block = var.public_subnet
-  availability_zone = "us-east-2a"
+  availability_zone = "us-east-1a"
   map_public_ip_on_launch = true
   tags = {
     Name = "test-public-subnet"
@@ -20,7 +20,7 @@ resource "aws_subnet" "public" {
 resource "aws_subnet" "public2" {
   vpc_id = aws_vpc.test.id
   cidr_block = var.public_subnet2
-  availability_zone = "us-east-2b"
+  availability_zone = "us-east-1b"
   map_public_ip_on_launch = true
   tags = {
     Name = "test-public-subnet"
@@ -31,7 +31,7 @@ resource "aws_subnet" "public2" {
 resource "aws_subnet" "private" {
   vpc_id = aws_vpc.test.id
   cidr_block = var.private_subnet
-  availability_zone = "us-east-2a"
+  availability_zone = "us-east-1a"
   map_public_ip_on_launch = false
   tags = {
     Name = "test-private-subnet"
@@ -41,7 +41,7 @@ resource "aws_subnet" "private" {
 resource "aws_subnet" "private2" {
   vpc_id = aws_vpc.test.id
   cidr_block = var.private_subnet2
-  availability_zone = "us-east-2b"
+  availability_zone = "us-east-1b"
   map_public_ip_on_launch = false
   tags = {
     Name = "test-private-subnet"
