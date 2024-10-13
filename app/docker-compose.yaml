@@ -1,0 +1,22 @@
+version: "3.9"
+services:
+  database:
+    image: postgres
+    env_file:
+      - .env
+    volumes:
+      - ./.docker/volumes/database:/var/lib/postgresql/data
+      - .pg_hba.conf:/etc/postgresql/12/main/pg_hba.conf
+  web:
+    build:
+      context: .
+      target: development
+    env_file:
+      - .env
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: postgres://rails:postgres@database:5432/spina_db      
+      RAILS_ENV: development
+    depends_on:
+      - database

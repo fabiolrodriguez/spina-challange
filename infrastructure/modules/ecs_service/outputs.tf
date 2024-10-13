@@ -15,3 +15,8 @@ output target_group_arn {
 output security_group{
   value = aws_security_group.test.id
 }
+
+output "ecr_repository_url" {
+  value = aws_ecr_repository.test-repo.repository_url
+  description = "The URL of the ECR repository."
+}

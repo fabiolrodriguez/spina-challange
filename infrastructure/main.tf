@@ -2,9 +2,9 @@
 
 module "service" {
   source = "./modules/ecs_service"
-  name   = "nginx"
-  container_name = "nginx"
-  # image = "416572346136.dkr.ecr.us-east-2.amazonaws.com/test-nginx:latest"
+  name   = "spina"
+  container_name = "spina"
+  image = "${module.service.ecr_repository_url}:latest"
   cluster = aws_ecs_cluster.test
   subnet_id1 = aws_subnet.private.id
   subnet_id2 = aws_subnet.private2.id

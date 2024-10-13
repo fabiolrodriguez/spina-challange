@@ -6,6 +6,6 @@ resource "aws_ecr_repository" "test-repo" {
     scan_on_push = true
   }
   tags = {
-    Name = "ECR repo for interview_25 ALB"
+    Name = "ECR repo for spina ALB"
   }
 }

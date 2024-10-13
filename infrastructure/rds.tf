@@ -20,7 +20,7 @@ resource "aws_db_instance" "postgres" {
   publicly_accessible  = false
   multi_az = true
   db_subnet_group_name = aws_db_subnet_group.spina.name
-  manage_master_user_password = true
+  password = var.dbpassword
   vpc_security_group_ids = [aws_security_group.rds_sg.id]
   tags = {
     Name = "DB MultiAZ for Spina ALB"

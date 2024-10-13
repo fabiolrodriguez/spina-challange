@@ -45,13 +45,13 @@ variable "engine" {
 
 variable "identifier" {
   description = "The name of the RDS instance"
-  default = "database-interview-25"
+  default = "database-spina"
   type = string
 }
 
 variable "name" {
   description = "The database name"
-  default = "interview_25"
+  default = "spina"
   type = string
 }
 
@@ -76,6 +76,12 @@ variable "storage_type_db" {
 variable "username" {
   description = "Username for the master DB user."
   default = "root"
+  type = string
+}
+
+variable "dbpassword" {
+  description = "Username for the master DB user."
+  default = "0P4%%wr0gIssu4R"
   type = string
 }
 
@@ -105,7 +111,7 @@ variable "skip_final_snapshot" {
 
 variable "port" {
   description = "The port on which the DB accepts connections"
-  default = 3306
+  default = 5432
   type = number
   validation {
     error_message = "Please use a valid port."
@@ -113,4 +119,8 @@ variable "port" {
         3306, 5432
     ])], [")$"])), var.port))
   }
+}
+
+variable "container_port" {
+  default = "3000"
 }

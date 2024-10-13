@@ -1,0 +1,23 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: database
+  username: <%= ENV.fetch("POSTGRES_USER") %>
+  password: <%= ENV.fetch("POSTGRES_PASSWORD") %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: spina_db
+
+test:
+  <<: *default
+  database: ror_test
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  host: database-spina.cf2fqnkyjjjk.us-east-1.rds.amazonaws.com:5432
+  username: root
+  password: "0P4%%wr0gIssu4R"
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %> 
