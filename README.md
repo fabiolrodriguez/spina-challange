@@ -107,12 +107,12 @@ make deploy
 
 ## To-do
 
-[ ] Set Spina CMS run properly, for now it is just a vanilla rails running
-[ ] Fix the runtime error on production image
-[ ] Improve the docker image with best pratices for ruby applications
-[ ] Improve security
-[ ] Setup HTTPS
-[ ] Setup a CI/CD pipeline
+- [ ] Set Spina CMS run properly, for now it is just a vanilla rails running
+- [ ] Fix the runtime error on production image
+- [ ] Improve the docker image with best pratices for ruby applications
+- [ ] Improve security
+- [ ] Setup HTTPS
+- [ ] Setup a CI/CD pipeline
 
 ## Notes
 
