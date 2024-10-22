@@ -13,6 +13,8 @@ services:
       target: development
     env_file:
       - .env
+    volumes: 
+      - web-data:/ror
     ports:
       - "3000:3000"
     environment:
@@ -20,3 +22,6 @@ services:
       RAILS_ENV: development
     depends_on:
       - database
+
+volumes:
+  web-data:

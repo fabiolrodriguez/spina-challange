@@ -54,14 +54,14 @@ docker-compose up -d
 Create the database
 
 ```
-docker-compose run web rake db:create
-docker-compose run web rake db:migrate 
+docker-compose run web rails db:create
+docker-compose run web rails db:migrate 
 ```
 
 Install Spina CMS
 
 ```
-docker-compose run web rake spina:install -q
+docker-compose run web rails g spina:install
 ```
 
 ## Running on Cloud
