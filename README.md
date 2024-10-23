@@ -42,6 +42,7 @@ cd app
 Build the image
 
 ```
+export PROFILE=dev
 docker-compose build
 ```
 
@@ -64,35 +65,11 @@ Install Spina CMS
 docker-compose run web rails g spina:install
 ```
 
-## Running on Cloud
-
-To run on cloud provider, please follow the steps using make
-
-## Create infrastructure
-
-Export your AWS profile:
+## Building production image
 
 ```
-export AWS_PROFILE=your-profile
-```
-
-Create infrastructure:
-```
-make infrastructure
-```
-
-## Build
-
-Build the image
-```
-make build
-```
-
-## Deploy
-
-Deploy the application on ECS
-```
-make deploy
+export PROFILE=prod
+docker-compose build
 ```
 
 ## References
@@ -107,7 +84,7 @@ make deploy
 
 ## To-do
 
-- [ ] Set Spina CMS run properly, for now it is just a vanilla rails running
+- [x] Set Spina CMS run properly, for now it is just a vanilla rails running
 - [ ] Fix the runtime error on production image
 - [ ] Improve the docker image with best pratices for ruby applications
 - [ ] Improve security
@@ -117,3 +94,11 @@ make deploy
 ## Notes
 
 This is my very first contact with a ruby application, so there are mistakes and errors here for now.
+
+## Changelog
+
+* Fixed local spina image and installation
+* Added named volume to docker-compose file to persist ruby files and local db
+* Fixed Dockerfile
+* Create separated dockerfiles for prod and dev
+* docker-compose now can build image for development and production
