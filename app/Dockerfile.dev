@@ -14,8 +14,8 @@ COPY . /ror
 RUN gem install bundler
 RUN bundle install
 
-RUN rails new . --database=postgresql
-RUN bundle install
+#RUN rails new . --database=postgresql
+#RUN bundle install
 
 # Configure endpoint.
 COPY ./entrypoint.sh /usr/bin/

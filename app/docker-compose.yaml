@@ -15,7 +15,7 @@ services:
     env_file:
       - .env
     volumes: 
-      - web-data:/ror
+      - .:/ror
     ports:
       - "3000:3000"
     environment:
@@ -23,6 +23,3 @@ services:
       RAILS_ENV: ${PROFILE:-dev}
     depends_on:
       - database
-
-volumes:
-  web-data:
