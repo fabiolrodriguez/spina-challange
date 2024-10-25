@@ -14,16 +14,11 @@ COPY . /ror
 RUN gem install bundler
 RUN bundle install
 
-RUN mv .env_production .env
-RUN rails new . --database=postgresql
-RUN bundle install
-
 # Configure endpoint.
 COPY ./entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
 ENTRYPOINT ["entrypoint.sh"]
 EXPOSE 3000
 
-# Precompile Rails assets
-RUN RAILS_ENV=production bundle exec rake assets:precompile
-CMD ["rails", "server", "-e", "production", "-b", "0.0.0.0"]
+# Start app server.
+CMD ["rails", "server", "-e", "dev", "-b", "0.0.0.0"]

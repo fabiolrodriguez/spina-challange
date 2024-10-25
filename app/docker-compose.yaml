@@ -10,8 +10,7 @@ services:
   web:
     build:
       context: .
-      dockerfile: Dockerfile.${PROFILE:-dev}
-    image: spina:${PROFILE:-dev}
+    image: spina:dev
     env_file:
       - .env
     volumes: 
@@ -20,6 +19,16 @@ services:
       - "3000:3000"
     environment:
       DATABASE_URL: postgres://rails:postgres@database:5432/spina_db      
-      RAILS_ENV: ${PROFILE:-dev}
+      RAILS_ENV: development
     depends_on:
       - database
+  web-prod:
+    build:
+      context: .
+    image: spina:prod
+    ports:
+      - "3000:3000"
+    environment:
+      RAILS_ENV: production
+    profiles:
+      - stopped

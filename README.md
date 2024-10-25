@@ -42,8 +42,7 @@ cd app
 Build the image
 
 ```
-export PROFILE=dev
-docker-compose build
+docker-compose build web
 ```
 
 Bring database and application up
@@ -68,8 +67,7 @@ docker-compose run web rails g spina:install
 ## Building production image
 
 ```
-export PROFILE=prod
-docker-compose build
+docker-compose build web-prod
 ```
 
 ## References
